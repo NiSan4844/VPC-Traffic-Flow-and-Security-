@@ -23,27 +23,36 @@ In this project, I created an Amazon VPC to:
 ### 1. Create a VPC
 - **VPC Name**: `my-secure-vpc`
 - **IPv4 CIDR block**: `10.0.0.0/16`
-  
+
+    ![S1](https://github.com/user-attachments/assets/a3477718-8aa1-4760-9861-4b69199b8384)
+
 This creates an isolated virtual network in AWS with a defined IP address range.
 
 ### 2. Configure Subnets
-- **Public Subnet**: `10.0.1.0/24`
-- **Private Subnet**: `10.0.2.0/24`
+- **Public Subnet**: `10.0.0.0/24`
+
+    ![S2](https://github.com/user-attachments/assets/b0e77252-d363-4aaa-bef9-4f91dd6c320c)
+
   
 Subnets divide the VPC into smaller IP ranges. The public subnet is configured for resources that need internet access, while the private subnet is for internal resources.
 
 ### 3. Set up an Internet Gateway
-- **Internet Gateway Name**: `my-igw`
+- **Internet Gateway Name**: `Project IG`
+
+  ![S3](https://github.com/user-attachments/assets/dcd0b763-112e-4306-ac2b-5e1679fab448)
+
   
 An Internet Gateway allows resources in the VPC to communicate with the internet.
 
 ### 4. Attach the Internet Gateway to the VPC
-- Attached `my-igw` to `my-secure-vpc` to allow internet-bound traffic from the VPC.
+- Attached `Project IG` to `Project VPC` to allow internet-bound traffic from the VPC.
 
 ### 5. Configure Route Tables
 - **Public Route Table**: 
-  - Route: `0.0.0.0/0` → Target: `Internet Gateway (my-igw)`
-  - Subnet Association: `Public Subnet (10.0.1.0/24)`
+  - Route: `0.0.0.0/0` → Target: `Internet Gateway (Project IG)`
+  - Subnet Association: `Public Subnet (10.0.0.0/24)`
+
+    ![S1](https://github.com/user-attachments/assets/6cccc112-b9d2-4987-8255-ca9df87f2e4d)
   
 This route allows traffic from the public subnet to access the internet through the Internet Gateway.
 
@@ -51,6 +60,9 @@ This route allows traffic from the public subnet to access the internet through 
 - **Inbound Rule**: Allow HTTP traffic (Port 80) from `0.0.0.0/0`
   - This allows any IP address to access resources using HTTP.
 - **Outbound Rule**: Allow all outbound traffic
+
+  ![S2](https://github.com/user-attachments/assets/c4c84182-a04b-4527-aaa8-066696f471b0)
+
   
 Security Groups act as virtual firewalls for controlling traffic to and from EC2 instances within the VPC.
 
@@ -59,6 +71,8 @@ Security Groups act as virtual firewalls for controlling traffic to and from EC2
   - **Inbound Rule**: Allow HTTP traffic from `0.0.0.0/0`
   - **Outbound Rule**: Allow all outbound traffic
   - **Default Action**: Deny all other traffic
+
+    ![S3](https://github.com/user-attachments/assets/0d1b1b42-00e3-4f73-bf46-96e9f2e20630)
 
 Network ACLs are stateless firewalls applied at the subnet level. In contrast to security groups, they apply to all resources within a subnet and control traffic in and out.
 
