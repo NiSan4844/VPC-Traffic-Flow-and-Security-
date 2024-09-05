@@ -98,7 +98,7 @@ Route tables manage how traffic moves within the VPC and to external networks. I
 ### Internet Gateway
 An Internet Gateway is attached to the VPC to allow traffic from the public subnet to flow to the internet. The route for internet-bound traffic is defined as:
 - **Destination**: `0.0.0.0/0`
-- **Target**: `Internet Gateway (my-igw)`
+- **Target**: `Internet Gateway (Project IG)`
 
 ## Key Learnings
 - **Security Groups vs. Network ACLs**: Security Groups are stateful and easier to manage, while Network ACLs are stateless and more granular.
