@@ -59,7 +59,7 @@ This route allows traffic from the public subnet to access the internet through 
 ### 6. Configure Security Groups
 - **Inbound Rule**: Allow HTTP traffic (Port 80) from `0.0.0.0/0`
   - This allows any IP address to access resources using HTTP.
-- **Outbound Rule**: Allow TCP protocol outbound traffic
+- **Outbound Rule**: Allow all outbound traffic
 
   ![S2](https://github.com/user-attachments/assets/c4c84182-a04b-4527-aaa8-066696f471b0)
 
